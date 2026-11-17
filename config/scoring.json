@@ -1,0 +1,116 @@
+{
+ "schema": "face-metrics/scoring@site-v4",
+ "source": "rizzaqu.github.io/site (FAQ → Формула), извлечено 2026-11-16",
+ "scale": "0..10 (группа = сумма баллов / делитель; делитель = maxTier1/10, кроме анфас 33.0)",
+ "groups": {
+  "harmony_front": {
+   "divisor": 33.0,
+   "metricCount": 36,
+   "maxTier1": 330.0,
+   "rule": "фиксированный делитель 33.0 (сайт)"
+  },
+  "harmony_profile": {
+   "divisor": 18.5,
+   "metricCount": 27,
+   "maxTier1": 185.0,
+   "rule": "maxTier1/10 (сайт: totalPoints/(maxPoints/10))"
+  },
+  "features": {
+   "divisor": 45.0,
+   "metricCount": 47,
+   "maxTier1": 450.0,
+   "rule": "фиксированный делитель 45 (сайт)"
+  },
+  "angularity": {
+   "divisor": 16.5,
+   "metricCount": 10,
+   "maxTier1": 165.0,
+   "rule": "maxTier1/10 (сайт)"
+  },
+  "dimorphism": {
+   "divisor": 15.0,
+   "metricCount": 15,
+   "maxTier1": 150.0,
+   "rule": "фиксированный делитель 15 (сайт)"
+  }
+ },
+ "harmonyWeights": {
+  "front": 0.6,
+  "profile": 0.4
+ },
+ "totalWeights": {
+  "male": {
+   "harmony": 0.32,
+   "features": 0.26,
+   "angularity": 0.22,
+   "dimorphism": 0.2
+  },
+  "female": {
+   "harmony": 0.32,
+   "features": 0.26,
+   "angularity": 0.19,
+   "dimorphism": 0.23
+  }
+ },
+ "penalty": {
+  "threshold": 0.5,
+  "k": 0.5,
+  "rule": "если взвешенное отклонение ≥ 0.5 → штраф = отклонение × 0.5, иначе 0; итог = общий − штраф",
+  "weightedDeviation": "Σ вес_i × |оценка_i − общий балл|",
+  "example": "10/10/10/0 (муж): общий 8.00, отклонение 3.20, штраф 1.60, итог 6.40",
+  "source": "FAQ сайта rizzaqu.github.io/site (вкладка Штраф), 2026-11-16"
+ },
+ "ranks": {
+  "sub3": {
+   "max": 2.99,
+   "group": "SUB3",
+   "label": "≤ 2.99"
+  },
+  "subhuman": [
+   {
+    "min": 3.0,
+    "max": 3.32,
+    "group": "SUBHUMAN",
+    "label": "Low Subhuman"
+   },
+   {
+    "min": 3.33,
+    "max": 3.65,
+    "group": "SUBHUMAN",
+    "label": "Mid Subhuman"
+   },
+   {
+    "min": 3.66,
+    "max": 3.99,
+    "group": "SUBHUMAN",
+    "label": "High Subhuman"
+   }
+  ],
+  "tiers": {
+   "male": {
+    "4": "LTN",
+    "5": "MTN",
+    "6": "HTN",
+    "7": "CHADLITE",
+    "8": "CHAD"
+   },
+   "female": {
+    "4": "LTB",
+    "5": "MTB",
+    "6": "HTB",
+    "7": "STACYLITE",
+    "8": "STACY"
+   }
+  },
+  "top": {
+   "male": {
+    "9": "ADAM",
+    "10": "TRUE ADAM"
+   },
+   "female": {
+    "9": "EVE",
+    "10": "TRUE EVE"
+   }
+  }
+ }
+}
